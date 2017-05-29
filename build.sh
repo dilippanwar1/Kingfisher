@@ -50,6 +50,8 @@ lipo -create -output "${UNIVERSAL_FRAMEWORK_DIR}/${FRAMEWORK_NAME}.framework/${F
 # framework.  The device mappings already exist from step 6.
 #cp -r "${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/" "${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule"
 
+tar cvzf Kingfisher.framework.tar.gz -C universal/ .
+
 # 9
 # Delete the most recent build.
 if [ -d "${SRCROOT}/build" ]; then
