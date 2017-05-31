@@ -27,8 +27,8 @@ mkdir "${UNIVERSAL_FRAMEWORK_DIR}"
 # 4
 # Build the framework for device and for simulator (using
 # all needed architectures).
-xcodebuild -workspace "${FRAMEWORK_NAME}.xcworkspace" -scheme "${FRAMEWORK_NAME}" BUILD_DIR="out" BUILD_ROOT="${PWD}" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk "iphoneos" clean build
-xcodebuild  -workspace "${FRAMEWORK_NAME}.xcworkspace" -scheme "${FRAMEWORK_NAME}" BUILD_DIR="out" BUILD_ROOT="${PWD}" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk "iphonesimulator" clean build
+xcodebuild -workspace "${FRAMEWORK_NAME}.xcworkspace" -scheme "${FRAMEWORK_NAME}" ENABLE_BITCODE=YES BITCODE_GENERATION_MODE=bitcode BUILD_DIR="out" BUILD_ROOT="${PWD}" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk "iphoneos" clean build
+xcodebuild  -workspace "${FRAMEWORK_NAME}.xcworkspace" -scheme "${FRAMEWORK_NAME}" ENABLE_BITCODE=YES BITCODE_GENERATION_MODE=bitcode BUILD_DIR="out" BUILD_ROOT="${PWD}" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk "iphonesimulator" clean build
 
 # 5
 # Remove .framework file if exists on Desktop from previous run.
